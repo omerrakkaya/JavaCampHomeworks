@@ -11,23 +11,22 @@ import hrms.hrms.business.abstracts.JobTitleService;
 import hrms.hrms.entities.concretes.JobTitle;
 
 @RestController
-@RequestMapping("/api/job-titles/")
-public class JobTitlesControllers {
+@RequestMapping("/api/job-titles")
+public class JobTitlesController {
+
+	private JobTitleService jobTitleService;
 
 	@Autowired
-	private JobTitleService jobTitleService;
-	
-	
-	public JobTitlesControllers(JobTitleService jobTitleService) {
+	public JobTitlesController(JobTitleService jobTitleService) {
 		super();
-		
+
 		this.jobTitleService = jobTitleService;
 	}
-	
+
 	@GetMapping("/getall")
-	public List<JobTitle> getAll(){
+	public List<JobTitle> getAll() {
 		return this.jobTitleService.getAll();
-		
+
 	}
-	
+
 }
